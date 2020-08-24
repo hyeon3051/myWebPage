@@ -1,0 +1,22 @@
+table {
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #c3e1dd;
+}
+.menu-array {
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+.menu-button {
+  margin-right: 2rem;
+}
+a {
+  text-decoration: none;
+}

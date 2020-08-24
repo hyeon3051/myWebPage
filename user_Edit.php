@@ -20,30 +20,75 @@ $phone = $row['phone'];
 $reg_date = $row['reg_date'];
 
 ?>
-<form action="./user_Editprocess.php" method="post">
-    <ul>
-        <li>
-            이름 :
-            <?= $name ?>
-        </li>
-        <li>
-            <input type="text" name="id" value=<?= $userId ?> hidden /> id: <?= $userId ?>
-        </li>
-        <li>
-            비밀번호: <input type="text" name="pass" value=<?= $userPw ?>></input>
-        </li>
-        <li>
-            다시 입력:<input type="text" value=<?= $userPw ?>></input> </li>
-        <li>
-            이메일: <input type="text" name="email" value=<?= $email ?>></input>
-        </li>
-        <li>
-            폰: <input type="text" name="phone" value=<?= $phone ?> id="">
-        </li>
-        <li>
-            성별: <?= $gender ?>
-        </li>
-        <li>
+<!DOCTYPE html>
+<html lang="en">
 
-            <input type="submit" value="수정 완료" />
-</form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <form action="./user_Editprocess.php" method="post">
+        <table class=" table userinfo">
+            <tr>
+                <td>
+                    이름
+                </td> <td>
+                    <?= $name ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="id" value=<?= $userId ?> hidden /> id: <?= $userId ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    비밀번호
+                </td> <td>
+                    <input type="text" name="pass" value=<?= $userPw ?>>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    다시 입력
+                </td><td>
+                    <input type="text">
+                </td>
+            <tr>
+                <td>
+                    이메일
+                </td> <td>
+                    <input type="text" name="email" value=<?= $email ?>></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    폰
+                </td> <td>
+                    <input type="text" name="phone" value=<?= $phone ?> id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    성별
+                </td> <td>
+                    <?= $gender ?>
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <input type="submit" value="수정 완료" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

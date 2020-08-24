@@ -9,6 +9,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
+     <link rel="stylesheet" href="style_03.css">
  </head>
 
  <body>
@@ -16,8 +17,8 @@
          <table>
              <tr>
                  <td>받는사람</td>
-                 <td><input class="id" type="text" name="send_id" /></td>
-                 <td><input type="button" value="아이디  체크" onClick="checkID()"></input></td>
+                 <td><input class="id" type="text" name="send_id" /><input type="button" value="아이디  체크" onClick="checkID()"></input>
+                 </td>
              </tr>
              <tr>
                  <td>보내는 사람</td>
@@ -28,17 +29,20 @@
                  <td><input type="text" name="title" class="title" />
              </tr>
              <tr>
+                 <td> 내용</td>
                  <td>
-                     <textarea class="content" name="content" id="" cols="30" rows="10"></textarea>
+                     <textarea class="content" name="content" id="" cols="20" rows="10"></textarea>
                  </td>
              </tr>
              <tr>
                  <td>
-                     <input type="submit" onclick="checkNull(event)">
+                     <input type="submit" value=" 보내기" onclick="checkNull(event)">
+                     <input type="button" value="돌아가기" onclick="history.go(-1)">
                  </td>
              </tr>
          </table>
      </form>
+     (이전 제목과 중복되어서는 안됩니다.)
      <script>
          function checkID() {
              const value = document.querySelector('.id').value;

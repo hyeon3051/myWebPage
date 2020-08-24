@@ -43,6 +43,7 @@ $take_id = $length['take_id'];
             </tr>
     </table>
     <a style="color:blue;" type="button" onclick="history.go(-1)">돌아가기</a>
+    <a href="message_delete.php?title=<?= $title ?>">삭제</a>
 </body>
 
 </html>

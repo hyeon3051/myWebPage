@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="massanger_03.css">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
         $length = mysqli_num_rows($result);
 
     ?>
-        <table>
+        <table padding="2">
             <tr>
                 <td>제목</td>
                 <td>받은이</td>
@@ -90,11 +91,11 @@
             }
             ?>
             </table>
-            <div>
-                <a href="massenger_send.php">메세지 보내기</a>
-                <a href="user_messanger.php?mode=send">송신함</a>
-                <a href="user_messanger.php?mode=take">수신함</a>
-                <a href="userinfo.php?id=<?= $id ?>">돌아가기</a> </div>
+            <div class="menu-array">
+                <a class="menu-button" href="massenger_send.php">메세지 보내기</a>
+                <a class="menu-button" href="user_messanger.php?mode=send">송신함</a>
+                <a class="menu-button" href="user_messanger.php?mode=take">수신함</a>
+                <a class="menu-button" href="userinfo.php?id=<?= $id ?>">돌아가기</a> </div>
 </body>
 
 </html>

@@ -2,126 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-    <nav>
-        <img src="./lime.png" alt="오로라" class="picture" width="100px" height="100px" />
-        <ul class="icon">
-            <li><a href="login.html">정보</a></li>
-            <li><a href="./enrollIndex.html">회원가입</a></li>
-            <li>나의 사이트</li>
-        </ul>
-        <h1>안녕하세요</h1>
-    </nav>
-    <header class="bgImage"></header>
-    <div class="sideBar">
-        <ul class="sideMenuBar">
-            <li><a href="">menu2</a></li>
-            <li><a href="">menu1</a></li>
-            <li><a href="">menu3</a></li>
-        </ul>
-    </div>
-    <form action="./enroll.php" method="POST">
-        <table>
-            <tr>
-                <td>이름</td>
+  <nav>
 
-                <td><input type="text" name="name" id="" /></td>
-            </tr>
-            <tr>
-                <td>아이디</td>
+    <ul class="icon">
+      <li><a href="login.html">정보</a></li>
+      <li><a href="./enrollIndex.html">회원가입</a></li>
+      <li>나의 사이트</li>
+    </ul>
+    <h1>안녕하세요</h1>
+  </nav>
+  <form action="./enroll.php" method="POST">
+    <table>
+      <tr>
+        <td>이름</td>
 
-                <td>
-                    <input class="id" type="text" name="id" id="bothIdCheck" /><input type="button" value="중복 확인"
-                        onclick="checkBoth(document.querySelector('.id').value)" />
-                </td>
-            </tr>
-            <tr>
-                <td>비밀번호</td>
+        <td><input type="text" name="name" id="" /></td>
+      </tr>
+      <tr>
+        <td>아이디</td>
 
-                <td><input type="text" name="pass" id="" /></td>
-            </tr>
-            <tr>
-                <td>이메일</td>
+        <td>
+          <input class="id" type="text" name="id" id="bothIdCheck" /><input type="button" value="중복 확인"
+            onclick="checkBoth(document.querySelector('.id').value)" />
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
 
-                <td><input type="email" name="email" id="" /></td>
-            </tr>
-            <tr>
-                <td>
-                    성별
-                    <span><input type="radio" name="gender" id="man" /><label for="man">남자</label></span>
-                    <span><input type="radio" name="gender" id="woman" /><label for="woman">여자</label></span>
-                </td>
+        <td><input type="text" name="pass" id="" /></td>
+      </tr>
+      <tr>
+        <td>이메일</td>
 
-                <td>전화 <br />번호<input type="text" name="phone" id="" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="제출" onclick="checkNull(event)" /></td>
-                <td></td>
-            </tr>
-        </table>
-    </form>
-    <script>
-        var inputs = document.querySelectorAll('input');
-        var id = document.querySelector('.id');
-        var bothIdCheckNum = 0;
-        console.log(inputs);
+        <td><input type="email" name="email" id="" /></td>
+      </tr>
+      <tr>
+        <td>
+          성별
+        </td>
+        <td>
+          <span><input type="radio" name="gender" id="man" /><label for="man">남자</label></span>
+          <span><input type="radio" name="gender" id="woman" /><label for="woman">여자</label></span>
+        </td>
+      <tr>
+        <td>전화번호 </td>
+        <td>
+          <input type="text" name="phone" id="" /></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="제출" onclick="checkNull(event)" />
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+  <script>
+    var inputs = document.querySelectorAll("input");
+    var id = document.querySelector(".id");
+    var bothIdCheckNum = 0;
+    console.log(inputs);
 
-        function checkNull(event) {
-            if (bothIdCheckNum === 0) {
-
-
-                event.preventDefault();
-                alert('중복확인을 체크하셔야 합니다')
-
+    function checkNull(event) {
+      if (bothIdCheckNum === 0) {
+        event.preventDefault();
+        alert("중복확인을 체크하셔야 합니다");
+      } else {
+        for (const key in inputs) {
+          if (inputs[key].value === "") {
+            event.preventDefault();
+            alert("입력되지 않음");
+            console.log(inputs[key]);
+            inputs[key].focus();
+            break;
+          }
+        }
+      }
+    }
+    function checkBoth(str) {
+      if (str === "") {
+        alert("id를 공백으로 비워 둘 수 없습니다");
+        return;
+        if (str.length < 5) {
+          alert("id는 5자리 이상을 넘어가야 합니다");
+          return;
+        }
+      } else {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.status === 200 && xhr.readyState === 4) {
+            const bothIdExsist = xhr.responseText;
+            console.log(bothIdExsist);
+            if (bothIdExsist == true) {
+              alert("중복됨");
+              bothIdCheckNum = 0;
             } else {
-                for (const key in inputs) {
-                    if (inputs[key].value === "") {
-                        event.preventDefault();
-                        alert("입력되지 않음");
-                        console.log(inputs[key]);
-                        inputs[key].focus();
-                        break;
-                    }
-                }
+              alert("중복되지 않습니다");
+              bothIdCheckNum = 1;
             }
-        }
-        function checkBoth(str) {
-
-            if (str === "") {
-                alert('id를 공백으로 비워 둘 수 없습니다');
-                return;
-                if (str.length < 5) {
-                    alert('id는 5자리 이상을 넘어가야 합니다')
-                    return;
-                }
-            }
-            else {
-                const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.status === 200 && xhr.readyState === 4) {
-                        const bothIdExsist = xhr.responseText;
-                        console.log(bothIdExsist);
-                        if (bothIdExsist == true) {
-                            alert('중복됨');
-                            bothIdCheckNum = 0;
-                        }
-                        else {
-                            alert('중복되지 않습니다');
-                            bothIdCheckNum = 1;
-                        }
-                    }
-                }
-                xhr.open('GET', './checkboth.php?q=' + str, true);
-                xhr.send();
-            }
-        }
-    </script>
+          }
+        };
+        xhr.open("GET", "./checkboth.php?q=" + str, true);
+        xhr.send();
+      }
+    }
+  </script>
 </body>
 
 </html>

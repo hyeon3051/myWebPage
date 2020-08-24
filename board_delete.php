@@ -5,16 +5,18 @@
     } else {
         $userid = "";
     }
+    printf($userid);
     $title = $_GET['title'];
     $localhost = "localhost";
     $dbId = "hyeon3051";
     $pass = "is-ta-non/12";
     $db = "mydb";
     $conn = new mysqli($localhost, $dbId, $pass, $db);
-    $sql1 = "SELECT * from datadb where title = '$title'";
+    $sql1 = "SELECT * from datadb where title = '$title' and userid='$userid'";
     $result1 = $conn->query($sql1);
     $row = mysqli_fetch_assoc($result1);
     $id = $row['userid'];
+    printf($id);
     if ($userid != $id) {
         echo ("
         <script>

@@ -24,4 +24,3 @@ if ($conn->query($sql)) {
     echo $conn->error;
 }
 ?>
-d

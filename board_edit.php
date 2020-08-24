@@ -33,7 +33,7 @@
 </script>");
     }
     ?>
-    <form action="./board_editprocess.php" method="post">
+    <form action="./board_editprocess.php?title=<?=$row['title']?>" method="post">
         <table>
             <tr>
                 <td> 제목</td>

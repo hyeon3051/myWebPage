@@ -19,7 +19,7 @@ $file_copied = $row['file_copied'];
 echo ("
  $title 
  <hr>
- <div >
+ <div class='col-md-4' >
  $content
  </div>
  <hr>
@@ -40,5 +40,5 @@ if ($file_name) {
     ");
 }
 ?>
-<a href="board_edit.php?title=<?= $title ?>">. 수정</a>
+<a href="board_edit.php?title=<?= $title ?>">수정</a>
 <a href="board_delete.php?title=<?= $title ?>"> 삭제 </a>

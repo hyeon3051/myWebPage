@@ -30,6 +30,7 @@
             <tr>
                 <td> 제목</td>
                 <td><input type="text" class="title" name="title" id="" placeholder="id입력하세요" /></td>
+                제목은 다른 게시글과  겹치면 안됩니다.
             </tr>
             <tr>
                 <td>작성자</td>
